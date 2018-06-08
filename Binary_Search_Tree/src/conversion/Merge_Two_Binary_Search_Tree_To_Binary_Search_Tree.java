@@ -4,19 +4,7 @@ import java.util.ArrayList;
 
 import util.Node;
 
-public class Merge_Two_Binary_Search_Tree_To_Binary_Search_Tree {
-	public static void main(String[] args) {
-		Node root1 = new Node(20);
-		root1.left = new Node(10);
-		root1.right = new Node(30);
-		
-		Node root2 = new Node(2);
-		root2.left = new Node(1);
-		root2.right = new Node(3);
-		
-		System.out.println(merge(root1, root2).value);
-	}
-	
+public class Merge_Two_Binary_Search_Tree_To_Binary_Search_Tree {	
 	static ArrayList<Integer> arr1;
 	static ArrayList<Integer> arr2;
 	public static Node merge(Node root1, Node root2) {

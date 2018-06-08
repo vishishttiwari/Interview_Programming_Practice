@@ -1,48 +1,67 @@
-/* This is faulty */
+/* If an BST is not able to form then function returns null */
+/* Beautiful piece of code right here */
 
 package construction;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import util.Node;
 
-public class Levelorder_To_Binary_Search_Tree {	
+class NodeDetails {
+	int value;
+	int min;
+	int max;
+	NodeDetails(int value, int min, int max) {
+		this.value = value;
+		this.min = min;
+		this.max = max;
+	}
+}
+
+public class Levelorder_To_Binary_Search_Tree {		
 	public static Node construct(int[] level) {
-		ArrayList<Node> prev = new ArrayList<Node>();
-		ArrayList<Node> toBeAdded = new ArrayList<Node>();
-		Node root = new Node(level[0]);
-		toBeAdded.add(root);
-		for (int i = 1; i < level.length; i++) {
-			if (level[i] < level[i-1]) {
-				prev.clear();
-				prev.addAll(toBeAdded);
-				toBeAdded.clear();
+		Queue<NodeDetails> nodesDetails = new LinkedList<NodeDetails>();
+		Queue<Node> nodes = new LinkedList<Node>();
+		int index = 0;
+		Node root = new Node(level[index]);
+		nodesDetails.add(new NodeDetails(level[index++], Integer.MIN_VALUE, Integer.MAX_VALUE));
+		nodes.add(root);
+		
+		while(true) {
+			if (nodes.isEmpty()) return null;
+			NodeDetails detailedNode = nodesDetails.poll();
+			Node node = nodes.poll();
+			if ((level[index] > detailedNode.min) && (level[index] < detailedNode.value)) {
+				nodesDetails.add(new NodeDetails(level[index], detailedNode.min, detailedNode.value));
+				Node temp = new Node(level[index++]);
+				node.left = temp;
+				nodes.add(temp);
+			}	
+			if ((level[index] > detailedNode.value) && (level[index] < detailedNode.max)) {
+				nodesDetails.add(new NodeDetails(level[index], detailedNode.value, detailedNode.max));
+				Node temp = new Node(level[index++]);
+				node.right = temp;
+				nodes.add(temp);
 			}
-			Node node = new Node(level[i]);
-			toBeAdded.add(node);
-			for (int j = 0; j < prev.size(); j++) {
-				if (prev.get(j).value > node.value) {
-					if (j == 0) {
-						prev.get(j).left = node;
-						break;
-					}
-					else {
-						if (prev.get(j-1).right == null) {
-							prev.get(j-1).right = node;
-							break;
-						}
-						else {
-							prev.get(j).left = node;
-							break;
-						}
-					}
-				}
-				else if (node.value > prev.get(prev.size() - 1).value) {
-					prev.get(prev.size() - 1).right = node;
-					break;
-				}
-			}
+			if (index == level.length) break;
 		}
 		return root;
 	}
 }
+
+/*Construct BST from its given level order traversal
+Construct the BST (Binary Search Tree) from its given level order traversal.
+
+Examples:
+
+Input : arr[] = {7, 4, 12, 3, 6, 8, 1, 5, 10}
+Output : BST: 
+        7        
+       / \       
+      4   12      
+     / \  /     
+    3  6 8    
+   /  /   \
+  1   5   10
+*/
