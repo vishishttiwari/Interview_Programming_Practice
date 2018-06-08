@@ -1,0 +1,45 @@
+import java.util.Arrays;
+
+public class Merge_Sort {
+	
+	static void divide(int[] arr, int left, int right) {
+		if (left < right) {
+			int mid = (left + right)/2;
+			divide(arr, left, mid);
+			divide(arr, mid + 1, right);
+			merge(arr, left, mid, right);
+		}
+	}
+	
+	static void merge(int[] arr, int left, int mid, int right) {
+		int L = mid - left + 1;
+		int R = right - mid;
+		
+		// create temp arrays
+		int[] Left = Arrays.copyOfRange(arr, left, mid + 1);
+		int[] Right = Arrays.copyOfRange(arr, mid + 1, right + 1);
+		
+		int counterL = 0, counterR = 0, counterTotal = left; // important that the counter has to start from left
+		while (counterL < L && counterR < R) {
+			if (Left[counterL] <= Right[counterR]) {
+				arr[counterTotal] = Left[counterL];
+				counterL++;
+			}
+			else {
+				arr[counterTotal] = Right[counterR];
+				counterR++;
+			}
+			counterTotal++;
+		}
+		while (counterL < L) {
+			arr[counterTotal] = Left[counterL];
+			counterL++;
+			counterTotal++;
+		}
+		while (counterR < R) {
+			arr[counterTotal] = Right[counterR];
+			counterR++;
+			counterTotal++;
+		}
+	}
+}

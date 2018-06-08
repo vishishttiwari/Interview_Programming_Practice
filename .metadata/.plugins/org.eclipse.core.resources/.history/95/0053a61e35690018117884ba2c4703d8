@@ -1,0 +1,44 @@
+import java.util.Stack;
+
+public class Iterative_Quick_Sort {
+	public static void sort(int[] arr) {
+		Stack<Integer> stack = new Stack<Integer>();
+		stack.push(0);
+		stack.push(arr.length - 1);
+		
+		while(!stack.isEmpty()) {
+			int right = stack.pop();
+			int left = stack.pop();
+			int wall = quickSort(arr, left, right);
+			if (left < wall - 1) {
+				stack.push(left);
+				stack.push(wall - 1);
+			}
+			if (right > wall + 1) {
+				stack.push(wall + 1);
+				stack.push(right);
+			}
+		}
+	}
+	
+	public static int quickSort(int[] arr, int left, int right) {
+		int pivot = arr[(left + right)/2];
+		while (left < right) {
+			if ((arr[left] >= pivot) && (arr[right] <= pivot)) {
+				swap(arr, left, right);
+				left++;
+				right--;
+			}
+			else {
+				if (arr[left] < pivot) left++;
+				if (arr[right] > pivot) right--;
+			}
+		}
+		return left;
+	}
+	public static void swap(int[] arr, int left, int right) {
+		int temp = arr[left];
+		arr[left] = arr[right];
+		arr[right] = temp;
+	}
+}

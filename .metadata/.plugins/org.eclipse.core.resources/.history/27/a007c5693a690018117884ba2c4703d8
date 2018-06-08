@@ -1,0 +1,39 @@
+package basic;
+
+import general.Node;
+
+public class Search {
+	public static void main(String[] args) {
+		Node root = new Node(8);
+		root.left = new Node(3);
+		root.left.left = new Node(1);
+		root.left.right = new Node(6);
+		root.left.right.left = new Node(4);
+		root.left.right.right = new Node(7);
+		root.right = new Node(10);
+		root.right.right = new Node(14);
+		root.right.right.left = new Node(13);
+		
+		System.out.println(searchRecursive(root, 13).value);
+		System.out.println(searchIterative(root, 13).value);
+	}
+	
+	public static Node searchRecursive(Node root, int value) {
+		if (root == null) return null;
+		if (root.value == value) return root;
+		Node left = searchRecursive(root.left, value);
+		Node right = searchRecursive(root.right, value);
+		if (left != null) return left;
+		return right;
+	}
+	
+	public static Node searchIterative(Node root, int value) {
+		Node node = root;
+		while (node != null) {
+			if (node.value < value) node = node.right;
+			else if (node.value > value) node = node.left;
+			else return node;
+		}
+		return null;
+	}
+}

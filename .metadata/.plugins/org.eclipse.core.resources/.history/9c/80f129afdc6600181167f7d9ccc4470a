@@ -1,0 +1,35 @@
+package construction;
+
+import java.util.HashMap;
+
+import general.Node;
+import general.Print;
+
+public class Ancestor_Matrix_To_Binary_Tree {
+	public static void main(String[] args) {
+		int[][] arr = {{0,0,0,0,0,0},{1,0,0,0,1,0},{0,0,0,1,0,0},{0,0,0,0,0,0},{0,0,0,0,0,0},{1,1,1,1,1,0}};
+		Print.print(construct(arr));
+	}
+	
+	public static Node construct(int[][] arr) {
+		HashMap<Integer, Node> map = new HashMap<Integer, Node>();
+		for (int i = 0; i < arr.length; i++) map.put(i, new Node(i));
+		boolean left;
+		for (int i = 0; i < arr.length; i++) {
+			left = false;
+			for (int j = 0; j < arr.length; j++) {
+				if (!left) {
+					if (arr[i][j] == 1) {
+						map.get(i).left = map.get(j);
+						left = true;
+					}
+				}
+				else {
+					if (arr[i][j] == 1) {
+						map.get(i).right = map.get(j);
+					}
+				}
+			}	
+		}
+	}
+}

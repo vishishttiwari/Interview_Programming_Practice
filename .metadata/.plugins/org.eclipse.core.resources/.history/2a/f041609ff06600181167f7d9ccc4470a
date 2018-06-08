@@ -1,0 +1,23 @@
+package conversion;
+
+import general.Node;
+import general.Print;
+
+public class Binary_Tree_To_Binary_Left_Sum_Tree {
+	public static void main(String[] args) {
+		Node root = new Node(1);
+		root.left = new Node(2);
+		root.right = new Node(3);
+		toSumTree(root);
+		Print.print(root);
+	}
+	
+	public static int toSumTree(Node node) 
+    {
+        if ((node.left == null) && (node.right == null)) return node.value;
+        int old_val = node.value;
+        node.value += toSumTree(node.left);
+        toSumTree(node.right);
+        return node.value + old_val;
+    }
+}

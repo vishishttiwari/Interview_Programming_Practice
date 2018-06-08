@@ -1,0 +1,28 @@
+package construction;
+
+import java.util.Stack;
+
+import general.Node;
+import general.Print;
+
+public class Levelorder_To_Binary_Tree {
+	public static void main(String[] args) {
+		int[] arr = {1, 2, 3, 4, 5, 6};
+		Print.print(construct(arr));
+	}
+	
+	public static Node construct(int[] arr) {
+		Node root = new Node(arr[0]);
+		Stack<Node> stack = new Stack<Node>();
+		stack.push(root);
+		int index = 1;
+		while(index < arr.length) {
+			Node node = stack.pop();
+			node.left = new Node(arr[index++]);
+			node.right = new Node(arr[index++]);
+			stack.push(node.left);
+			stack.push(node.right);
+		}
+		return root;
+	}
+}

@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+
+public class Bucket_Sort {
+	public static void main(String[] args) {
+		double[] arr = {0.64, 0.25, 0.13, 0.12, 0.22, 0.11};
+		bucketSort(arr);
+		for (int i = 0; i < arr.length; i++) System.out.print(arr[i] + " ");
+	}
+	
+	static void bucketSort(double[] arr) {
+		ArrayList<ArrayList<Double>> buckets = new ArrayList<ArrayList<Double>>();
+		for (int i = 0; i < arr.length; i++) {
+			ArrayList<Double> bucket = new ArrayList<Double>();
+			buckets.add(bucket);
+		}
+		for (int i = 0; i < arr.length; i++) {
+			buckets.get((int)arr[i] * arr.length).add(arr[i]);
+		}
+		for (int i = 0; i < arr.length; i++) {
+			insertionSort(buckets.get(i));
+		}
+		int counter = 0;
+		for (int i = 0; i < buckets.size(); i++) {
+			for (int j = 0; j < buckets.get(i).size(); j++) {
+				arr[counter] = buckets.get(i).get(j);
+				counter++;
+			}
+		}
+	}
+	
+	static void insertionSort(ArrayList<Double> arr) {
+		int minIndex;
+		for (int i = 0; i < arr.size(); i++) {
+			minIndex = i;
+			for (int j = i; j < arr.size(); j++) {
+				if (arr.get(j) < arr.get(minIndex)) minIndex = j;
+			}
+			double temp = arr.get(minIndex);
+			for (int j = minIndex - 1; j >= i; j--) {
+				arr.set(j + 1, arr.get(j));
+			}
+			arr.set(i, temp);
+		}
+	}
+	
+}

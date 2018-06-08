@@ -1,0 +1,34 @@
+
+public class Radix_Sort {
+	public static void sort(int[] arr) {
+		int numbers = countTensPosition(arr);
+		for (int i = 0; i < numbers; i++) {
+			radix_Sort(arr, (int)Math.pow(10,i));
+		}
+	}
+	
+	public static void radix_Sort(int[] arr, int exp) {
+		int[] count = new int[10];
+		for (int i = 0; i < arr.length; i++) {
+			count[(arr[i]/exp)%10]++;
+		}
+		for (int i = 1; i < count.length; i++) count[i] = count[i-1];
+		for (int i = 0; i < arr.length; i++) {
+			arr[count[(arr[i]/exp)%10]] = arr[i];
+			count[(arr[i]/exp)%10]--;
+		}
+	}
+	
+	public static int countTensPosition(int[] arr) {
+		int largest = Integer.MIN_VALUE;
+		for (int i = 0; i < arr.length; i++) {
+			largest = Math.max(largest, arr[i]);
+		}
+		int answer = 0;
+		while (largest > 1) {
+			largest/=10;
+			answer++;
+		}
+		return answer;
+	}
+}

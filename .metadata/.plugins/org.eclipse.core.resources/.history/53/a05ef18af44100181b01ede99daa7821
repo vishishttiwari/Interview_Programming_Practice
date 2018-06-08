@@ -1,0 +1,14 @@
+
+public class Check_if_each_Node_of_a_BST_has_kess_than_2_child_Problem {	
+	static int index = 0;
+	static boolean check(int[] arr, int min, int max) {
+		if (index >= arr.length) return true;
+		if (arr[index] <= max && arr[index] >= min) {
+			index++;
+			if (index >= arr.length) return true;
+			if (arr[index] <= arr[index - 1]) return check(arr, min, arr[index - 1]);
+			else return check(arr, arr[index - 1], max);
+		}
+		else return false;
+	}
+}

@@ -1,0 +1,33 @@
+package algorithms;
+import java.util.Arrays;
+import java.util.Collections;
+
+public class Arrays_Sort_Java_Function {
+	
+	public static void simple_Sort(int[] arr) {
+		Arrays.sort(arr);
+	}
+	
+	// Includes from but does not include to
+	public static void subarray_Sort(int[] arr, int from, int to) {
+		Arrays.sort(arr, from, to);
+	}
+	
+	// Collections.reverseOrder() requires the array to be Integer and not int
+	public static void descending_Sort(int[] arr) {
+		Integer[] arr1 = new Integer[arr.length];
+		for (int i = 0; i < arr.length; i++) arr1[i] = arr[i];
+		Arrays.sort(arr1, Collections.reverseOrder());
+		for (int i = 0; i < arr.length; i++) arr[i] = arr1[i];
+	}
+	
+	public static void alphabet_Simple_Sort(String[] arr) {
+		Arrays.sort(arr);
+	}
+	
+	public static void alphabet_Descending_Sort(String[] arr) {
+		Arrays.sort(arr, Collections.reverseOrder());
+	}
+	
+	
+}

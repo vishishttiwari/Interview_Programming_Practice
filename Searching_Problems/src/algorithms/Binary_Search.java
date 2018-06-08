@@ -1,0 +1,23 @@
+package algorithms;
+public class Binary_Search {
+	public static int recursive_Binary_Search(int[] arr, int find, int lo, int high) {
+		if (high < lo) return -1;
+		int mid = (high + lo)/2;
+		if (arr[mid] == find) return mid;
+		else if (arr[mid] < find) return recursive_Binary_Search(arr, find, mid + 1, high);
+		else if (arr[mid] > find) return recursive_Binary_Search(arr, find, lo, mid - 1);
+		return -1;
+	}
+	
+	public static int iterative_Binary_Search(int[] arr, int find) {
+		int lo = 0, high = arr.length - 1;
+		int mid;
+		while (high >= lo) {
+			mid = (high + lo)/2;
+			if (arr[mid] == find) return mid;
+			else if (arr[mid] < find) lo = mid + 1;
+			else if (arr[mid] > find) high = mid - 1;
+		}
+		return -1;
+	}
+}

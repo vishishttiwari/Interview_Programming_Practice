@@ -1,0 +1,23 @@
+package traversal;
+
+import general.Node;
+
+public class Diameter_Of_Tree {
+	public static void main(String[] args) {
+		Node node = new Node(0);
+		node.left = new Node(1);
+		node.right = new Node(2);
+		node.left.left = new Node(3);
+		node.left.right = new Node(4);
+		node.right.left = new Node(5);
+		node.right.right = new Node(6);
+		
+		System.out.println(diameter(node));
+	}
+	
+}
+/*Diameter of a Binary Tree in O(n) [A new method]
+The diameter of a tree is the number of nodes on the longest path between two leaves in the tree. 
+The diagram below shows two trees each with diameter nine, 
+the leaves that form the ends of a longest path are colored (note that there may be more than one path in tree of same diameter).
+*/

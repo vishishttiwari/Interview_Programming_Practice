@@ -1,0 +1,28 @@
+package checking;
+
+import general.Node;
+
+public class Check_If_Binary_Tree_Is_Sum_Tree {
+	public static void main(String[] args) {
+		Node root = new Node(26);
+		root.left = new Node(10);
+		root.right = new Node(3);
+		root.left.left = new Node(4);
+		root.left.right = new Node(6);
+		root.right.right = new Node(3);
+		System.out.println(check(root));
+	}
+	static boolean found;
+	public static boolean check(Node root) {
+		found = true;
+		checkSum(root);
+		return found;
+	}
+	public static int checkSum(Node root) {
+		if ((root.left == null) && (root.left == null)) return root.value;
+		int left = checkSum(root.left);
+		int right = checkSum(root.right);
+		if (root.value != (left + right)) found = false;
+		return root.value + left + right;
+	}
+}

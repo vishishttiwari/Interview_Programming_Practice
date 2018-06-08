@@ -1,0 +1,9 @@
+
+public class Main {
+	public static void main(String[] args) {
+		int[] arr = {64, 25, 12, 22, 11};
+		Print.print(arr);
+		Iterative_Quick_Sort.sort(arr);
+		Print.print(arr);
+	}
+}

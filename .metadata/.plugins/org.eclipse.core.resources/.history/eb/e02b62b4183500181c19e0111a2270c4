@@ -1,0 +1,35 @@
+/*
+ * Sum of heights of all individual nodes in a binary tree
+Given a binary tree, find sum of heights all individual Nodes in the tree.
+ */
+public class Sum_of_Heights_of_all_Nodes_in_Binary_Tree {
+	public static void main(String[] args) {
+		Node root = new Node(1);
+		Node a = new Node(2);
+		Node b = new Node(3);
+		Node c = new Node(4);
+		Node d = new Node(5);
+		Node e = new Node(6);
+		Node f = new Node(7);
+		root.left = a;
+		root.right = b;
+		a.left = c;
+		a.right = d;
+		b.left = e;
+		b.right = f;
+		System.out.print(sumOfHeights(root));
+	}
+	
+	static int sumOfHeights(Node root) {
+		if (root == null) return 0;
+		return heightOfTree(root) + sumOfHeights(root.left) + sumOfHeights(root.right);
+	}
+	
+	static int heightOfTree(Node root) {
+		if (root.left == null && root.right == null) {
+			return 1;
+		}
+		return 1 + Math.max(heightOfTree(root.left), heightOfTree(root.right));
+	}
+	
+}

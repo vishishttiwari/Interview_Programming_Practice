@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/Binary_Search_Tree_Problems/src/Find_Largest_BST_subtree_in_a_given_binary_tree_Problem.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="Find_Largest_BST_subtree_in_a_given_binary_tree_Problem"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Binary_Search_Tree_Problems"/>
+</launchConfiguration>

@@ -1,0 +1,37 @@
+
+public class Radix_Sort {
+	public static void main(String[] args) {
+		int[] arr = {64, 25, 13, 12, 22, 11};
+		radixSort(arr);
+		for (int i = 0; i < arr.length; i++) System.out.print(arr[i] + " ");
+	}
+	
+	static void radixSort(int[] arr) {
+		int m = getMax(arr); // get the maximum number from array
+		for (int i = 1; m/i > 1; i *= 10) {
+			sortDigit(arr, i);
+		}
+	}
+	
+	static void sortDigit(int[] arr, int exp) {
+		int[] output = new int[arr.length]; // create an array to save the answers
+		int[] count = new int[10]; // create array to save how many instances of that digit has occurred
+		for (int i = 0; i < arr.length; i++) count[(arr[i]/exp)%10]++; // count the number of times each digit has occurred
+		for (int i = 1; i < 10; i++) count[i] += count[i-1]; // add all of them together
+		// Now every time you see that digit, put it at the place from the above array and decrement the number of times that digit has been seen for the next time when that digit will be seen
+		for (int i = arr.length - 1; i >= 0; i--) {
+			output[count[(arr[i]/exp)%10] - 1] = arr[i];
+			count[(arr[i]/exp)%10]--;
+		}
+		// copy the answers from output to array
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = output[i];
+		}
+	}
+	
+	static int getMax(int[] arr) {
+		int maximum = Integer.MIN_VALUE;
+		for (int i = 0; i < arr.length; i++) maximum = Math.max(maximum, arr[i]);
+		return maximum;
+	}
+}

@@ -1,0 +1,83 @@
+import java.util.*;
+
+public class Lowest_Common_Ancestor_Problem {
+	public static void main(String[] args) {
+		Node root = new Node(1);
+		Node a = new Node(2);
+		Node b = new Node(3);
+		Node c = new Node(4);
+		Node d = new Node(5);
+		Node e = new Node(6);
+		Node f = new Node(7);
+		root.left = a;
+		root.right = b;
+		a.left = c;
+		a.right = d;
+		b.left = e;
+		b.right = f;
+		lowestCommonAncestor(4, 5, root);
+		System.out.println(answer);
+	}
+	
+	static Node answer = null;
+	static HashSet<Node> containsNode = new HashSet<Node>();
+	static void lowestCommonAncestor(int a,int b, Node root) {
+		findNodeWithDataA(root, a);
+		findNodeWithDataB(root, b);
+	}
+	
+	static Node findNodeWithDataA(Node root, int a) {
+		if (root.data == a) {
+			containsNode.add(root);
+			return root;
+		}
+		if (root.left == null && root.right == null) return null;
+		else if (root.left == null) {
+			containsNode.add(root);
+			return findNodeWithDataA(root.right, a);
+		}
+		else if (root.right == null) {
+			containsNode.add(root);
+			return findNodeWithDataA(root.left, a);
+		}
+		else {
+			Node x = findNodeWithDataA(root.right, a);
+			Node y = findNodeWithDataA(root.right, a);
+			if (x != null) return x;
+			if (y != null) return y;
+			return null;
+		}
+	}
+	
+	static Node findNodeWithDataB(Node root, int a) {
+		if (root.data == a) {
+			if (containsNode.contains(root)) {
+				answer = root;
+				containsNode.remove(root);
+			}
+			return root;
+		}
+		if (root.left == null && root.right == null) return null;
+		else if (root.left == null) {
+			if (containsNode.contains(root)) {
+				answer = root;
+				containsNode.remove(root);
+			}
+			return findNodeWithDataB(root.right, a);
+		}
+		else if (root.right == null) {
+			if (containsNode.contains(root)) {
+				answer = root;
+				containsNode.remove(root);
+			}
+			return findNodeWithDataB(root.left, a);
+		}
+		else {
+			Node x = findNodeWithDataB(root.right, a);
+			Node y = findNodeWithDataB(root.right, a);
+			if (x != null) return x;
+			if (y != null) return y;
+			return null;
+		}
+	}
+}

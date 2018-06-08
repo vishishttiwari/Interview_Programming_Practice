@@ -1,0 +1,20 @@
+package checking;
+
+import general.Node;
+
+public class Check_If_Binary_Tree_Is_Full {
+	static boolean found;
+	public static boolean check(Node root) {
+		found = true;
+		checkTree(root);
+		return found;
+	}
+	
+	public static void checkTree(Node root) {
+		if (root == null) return;
+		checkTree(root.left);
+		checkTree(root.right);
+		if ((root.left == null) && (root.right != null)) found = false;
+		if ((root.left != null) && (root.right == null)) found = false;
+	}
+}

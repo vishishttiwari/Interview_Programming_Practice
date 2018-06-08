@@ -1,0 +1,27 @@
+// This is the fastest agorithm when the array is almost sorted
+// You slide in insertion sort
+// You call it sliding sort
+
+public class Insertion_Sort {
+	public static void main(String[] args) {
+		int[] arr = {64, 25, 12, 22, 11};
+		insertionSort(arr);
+	}
+	
+	static int[] insertionSort(int[] arr) {
+		int minIndex;
+		for (int i = 0; i < arr.length; i++) {
+			minIndex = i;
+			for (int j = i; j < arr.length; j++) {
+				if (arr[j] < arr[minIndex]) minIndex = j;
+			}
+			int temp = arr[minIndex];
+			for (int j = minIndex - 1; j >= i; j--) {
+				arr[j + 1] = arr[j];
+			}
+			arr[i] = temp;
+		}
+		for (int i = 0; i < arr.length; i++) System.out.print(arr[i] + " ");
+		return arr;
+	}
+}

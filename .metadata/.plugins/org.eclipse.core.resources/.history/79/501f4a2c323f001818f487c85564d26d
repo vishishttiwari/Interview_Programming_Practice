@@ -1,0 +1,16 @@
+// This is a divide and conquer algorithm
+
+public class Merge_Sort {
+
+	
+	
+	static void divide(int[] arr, int left, int right) {
+		if (left < right) {
+			int mid = (left + right)/2;
+			divide(arr, left, mid);
+			divide(arr, mid + 1, right);
+			merge(arr, left, mid, right);
+		}
+	}
+	
+}

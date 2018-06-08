@@ -1,0 +1,7 @@
+
+public class Main {
+	public static void main(String[] args) {
+		int[] arr = {0, 10, 80, 30, 60, 50, 110, 100, 130, 170};
+		System.out.println(Linear_Search.linear_Search(50, arr));
+	}
+}

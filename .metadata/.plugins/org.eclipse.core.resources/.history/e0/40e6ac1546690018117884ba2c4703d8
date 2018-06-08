@@ -1,0 +1,59 @@
+package basic;
+
+import general.Node;
+import general.Print;
+
+public class Delete {
+	public static void main(String[] args) {
+		Node root = new Node(8);
+		root.left = new Node(3);
+		root.left.left = new Node(1);
+		root.left.right = new Node(6);
+		root.left.right.left = new Node(4);
+		root.left.right.right = new Node(7);
+		root.right = new Node(10);
+		root.right.right = new Node(14);
+		root.right.right.left = new Node(13);
+
+		Print.print(root);
+		deleteRecursive(root, 4);
+		Print.print(root);
+	}
+	
+	public static void deleteRecursive(Node root, int value) {
+		if (root == null) return;
+		if (root.value == value) {
+			
+			if ((root.left == null) && (root.right == null)) {
+				System.out.println(root.value);
+				root = null;
+			}
+			else if ((root.left != null) && (root.right == null)) root = root.left;
+			else if ((root.left == null) && (root.right != null)) root = root.right;
+			else root = inOrderSuccessor(root);
+			return;
+		}
+		else if (root.value < value) deleteRecursive(root.right, value);
+		else if (root.value > value) deleteRecursive(root.left, value);
+	}
+	
+	static Node successor;
+	static boolean found;
+	private static Node inOrderSuccessor(Node root) {
+		successor = null;
+		found = false;
+		inOrder(root, root);
+		return successor;
+	}
+	
+	private static void inOrder(Node root, Node node) {
+		if (root == null) return;
+		inOrder(root.left, node);
+		if (found) {
+			successor = root;
+			found = false;
+		}
+		if (root.value == node.value) found = true;
+		inOrder(root.right, node);
+	}
+}

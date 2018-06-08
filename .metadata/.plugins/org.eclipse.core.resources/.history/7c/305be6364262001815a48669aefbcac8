@@ -1,0 +1,18 @@
+import java.util.Arrays;
+
+public class Arrays_Sort_Java_Function {
+	public static void main(String[] args) {
+		int[] arr = {13, 7, 6, 45, 21, 9, 101, 102};
+		Print.print(arr);
+		subarray_Sort(arr);
+		Print.print(arr);
+	}
+	
+	public static void simple_Sort(int[] arr) {
+		Arrays.sort(arr);
+	}
+	
+	public static void subarray_Sort(int[] arr) {
+		Arrays.sort(arr, 2, 5);
+	}
+}

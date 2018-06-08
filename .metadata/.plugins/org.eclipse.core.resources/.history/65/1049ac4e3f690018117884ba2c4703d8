@@ -1,0 +1,27 @@
+package basic;
+
+import general.Node;
+import general.Print;
+
+public class Insert {
+	public static void main(String[] args) {
+		Node root = new Node(8);
+		root.left = new Node(3);
+		root.left.left = new Node(1);
+		root.left.right = new Node(6);
+		root.left.right.left = new Node(4);
+		root.left.right.right = new Node(7);
+		root.right = new Node(10);
+		root.right.right = new Node(14);
+		root.right.right.left = new Node(13);
+		Print.print(root);
+		Print.print(insertRecursive(root, 5));
+	}
+	
+	public static Node insertRecursive(Node root, int value) {
+		 if (root == null) return new Node(value);
+		 if (root.value < value) root.right = insertRecursive(root.right, value);
+		 if (root.value > value) root.left = insertRecursive(root.left, value);
+		 return root;
+	}
+}

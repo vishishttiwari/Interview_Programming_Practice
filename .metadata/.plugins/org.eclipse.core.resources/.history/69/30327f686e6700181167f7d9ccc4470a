@@ -1,0 +1,45 @@
+package traversal;
+
+import general.Node;
+
+public class Path_To_All_Leaves_In_Binary_Tree {
+	public static void main(String[] args) {
+		Node node = new Node(1);
+		node.left = new Node(2);
+		node.right = new Node(3);
+		node.right.left = new Node(4);
+		node.right.right = new Node(2);
+		
+		paths(node);
+	}
+	
+	static Node root;
+	public static void paths(Node Root) {
+		root = Root;
+		printPaths(Root);
+	}
+	
+	public static void printPaths(Node node) {
+		if (node != null) {
+            printPaths(node.left);
+            if (node.left == null && node.right == null) findPath(root, node);
+            System.out.println();
+            printPaths(node.right);
+        }
+	}
+	
+	public static boolean findPath(Node root, Node find) {
+		if (root == null) return false;
+		boolean left = findPath(root.left, find);
+		boolean right = findPath(root.right, find);
+		if (root.value == find.value) {
+			System.out.print(root.value + " ");
+			return true;
+		}
+		if (left || right) {
+			System.out.print(root.value + " ");
+			return true;
+		}
+		else return false;
+	}
+}

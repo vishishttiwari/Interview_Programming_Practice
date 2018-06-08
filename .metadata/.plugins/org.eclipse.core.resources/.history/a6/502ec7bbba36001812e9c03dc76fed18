@@ -1,0 +1,39 @@
+
+public class Weighted_Job_Scheduling_Problem {
+	public static void main(String[] args) {
+		int[][] jobs = {{1, 2, 50}, {3, 5, 20}, {6, 19, 100}, {2, 100, 200}};
+		System.out.println(weightedIntervalSchedulingDP(jobs));
+	}
+	
+	static int weightedIntervalSchedulingDP(int[][] jobs) {
+		int[] start = new int[jobs.length];
+		int[] end = new int[jobs.length];
+		int[] value = new int[jobs.length];
+		int maximumEnd = Integer.MIN_VALUE;
+		for (int i = 0; i < jobs.length; i++) {
+			start[i] = jobs[i][0];
+			end[i] = jobs[i][1];
+			value[i] = jobs[i][2];
+			maximumEnd = Math.min(maximumEnd, end[i]);
+		}
+		
+		int counter = 0;
+		int[] minimumArgument = new int[jobs.length];
+		while (counter == jobs.length-1) {
+			int minimumValue = Integer.MAX_VALUE, minimumArg = -1;
+			for (int i = 0; i < end.length; i++) {
+				if (end[i] < minimumValue) {
+					minimumValue = end[i];
+					minimumArg = i;
+				}
+			}
+			end[minimumArg] = Integer.MAX_VALUE;
+			minimumArgument[counter] = minimumArg;
+			counter++;
+		}
+		
+		for (int i = 0; i < jobs.length; i++) System.out.print(minimumArgument[i] + " ");
+		
+		return 2;
+	}
+}

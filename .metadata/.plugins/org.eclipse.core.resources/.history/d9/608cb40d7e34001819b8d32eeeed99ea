@@ -1,0 +1,66 @@
+/*
+Sum of nodes at maximum depth of a Binary Tree
+Given a root node to a tree, find the sum of all the leaf nodes which are at maximum depth from root node.
+
+Example:
+
+      1
+    /   \
+   2     3
+  / \   / \
+ 4   5 6   7
+
+Input : root(of above tree)
+Output : 22
+
+Explanation:
+Nodes at maximum depth are: 4, 5, 6, 7. 
+So, sum of these nodes = 22
+*/
+
+class Node {
+	int data;
+	Node left, right;
+	
+	public Node(int data) {
+		this.data = data;
+		this.left = null;
+		this.right = null;
+	}
+}
+
+public class Sum_of_Nodes_at_Maximum_Depth_Problem {
+	
+	public static void main(String[] args) {
+		Node root = new Node(1);
+		Node a = new Node(2);
+		Node b = new Node(3);
+		Node c = new Node(4);
+		Node d = new Node(5);
+		Node e = new Node(6);
+		Node f = new Node(7);
+		root.left = a;
+		root.right = b;
+		a.left = c;
+		a.right = d;
+		b.left = e;
+		b.right = f;
+		System.out.print(sum(root));
+	}
+	
+	static int heightOfTree(Node root) {
+		if (root.left == null && root.right == null) {
+			return 1;
+		}
+		return 1 + Math.max(heightOfTree(root.left), heightOfTree(root.right));
+	}
+	
+	static int sum(Node root) {
+		if (root == null) return 0;
+		System.out.println(root.data);
+		int height = heightOfTree(root);
+		if (height == 1) return root.data + sum(root.left) + sum(root.right);
+		else return sum(root.left) + sum(root.right);
+	}
+
+}

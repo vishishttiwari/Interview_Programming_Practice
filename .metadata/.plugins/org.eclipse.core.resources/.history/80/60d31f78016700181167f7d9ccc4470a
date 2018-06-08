@@ -1,0 +1,5 @@
+package checking;
+
+public class Check_If_Inorder_Preorder_Postorder_Are_Of_Same_Tree {
+
+}

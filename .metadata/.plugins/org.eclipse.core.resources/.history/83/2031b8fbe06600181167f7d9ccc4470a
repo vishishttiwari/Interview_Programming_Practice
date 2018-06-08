@@ -1,0 +1,29 @@
+package construction;
+
+import general.Print;
+
+public class Inorder_And_Postorder_To_Binary_Tree {
+	public static void main(String[] args) {
+		int[] in = {2, 1, 3};
+		int[] post = {2, 3, 1};
+		
+		Print.print(construct(in, post));
+	}
+	
+	static int preIndex;
+	public static Node construct(int[] in, int[] post) {
+		preIndex = in.length;
+		constructTree(in, post, 0, in.length - 1);
+	}
+	
+	public static Node constructTree(int[] in, int[] post, int start, int last) {
+		
+	}
+	
+	public static int find(int[] inorder, int index) {
+		for (int i = 0; i < inorder.length; i++) {
+			if (inorder[i] == index) return i;
+		}
+		return -1;
+	}
+}

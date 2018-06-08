@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;CheckPrime&apos; to &apos;Check_Prime&apos;&#x0A;- Original project: &apos;Important_Java_Functions&apos;&#x0A;- Original element: &apos;CheckPrime&apos;&#x0A;- Renamed element: &apos;Check_Prime&apos;&#x0A;- Update references to refactored element&#x0A;- Rename similarly named elements&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CheckPrime&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{CheckPrime.java[CheckPrime" matchStrategy="1" name="Check_Prime" qualified="false" references="true" similarDeclarations="true" stamp="1522633189285" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,9 @@
+import java.util.Arrays;
+
+public class Arrays_Sort_Java_Function {
+	public static void main()
+	
+	public static void simple_Sort(int[] arr) {
+		Arrays.sort(arr);
+	}
+}

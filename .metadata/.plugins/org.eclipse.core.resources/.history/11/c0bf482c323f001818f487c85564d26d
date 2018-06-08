@@ -1,0 +1,21 @@
+// This is the fastest algorithm when the array is almost sorted
+// You slide in insertion sort
+// You call it sliding sort
+
+public class Insertion_Sort {	
+	static int[] insertionSort(int[] arr) {
+		int minIndex;
+		for (int i = 0; i < arr.length; i++) {
+			minIndex = i;
+			for (int j = i; j < arr.length; j++) {
+				if (arr[j] < arr[minIndex]) minIndex = j;
+			}
+			int temp = arr[minIndex];
+			for (int j = minIndex - 1; j >= i; j--) {
+				arr[j + 1] = arr[j];
+			}
+			arr[i] = temp;
+		}
+		return arr;
+	}
+}

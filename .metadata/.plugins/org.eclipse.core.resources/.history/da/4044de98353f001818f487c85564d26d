@@ -1,0 +1,62 @@
+import java.util.Arrays;
+
+// This is a divide and conquer algorithm
+
+public class Merge_Sort {
+
+	public static void main(String[] args) {
+		int[] arr = {102030, 64, 25, 13, 12, 22, 11};
+		divide(arr, 0, arr.length - 1);
+		for (int i = 0; i < arr.length; i++) System.out.print(arr[i] + " ");
+	}
+	
+	static void divide(int[] arr, int left, int right) {
+		if (left < right) {
+			int mid = (left + right)/2;
+			divide(arr, left, mid);
+			divide(arr, mid + 1, right);
+			merge(arr, left, mid, right);
+		}
+	}
+	
+	static void merge(int[] arr, int left, int mid, int right) {
+		int L = mid - left + 1;
+		int R = right - mid;
+		
+		// create a temp array
+		/* Create temp arrays */
+        int Left[] = new int [L];
+        int Right[] = new int [R];
+ 
+        /*Copy data to temp arrays*/
+        for (int i=0; i<L; ++i)
+            Left[i] = arr[left + i];
+        for (int j=0; j<R; ++j)
+            Right[j] = arr[mid + 1+ j];
+ 
+		
+		int counterL = 0, counterR = 0, counterTotal = left;
+		while (counterL < L && counterR < R) {
+			if (Left[counterL] <= Right[counterR]) {
+				arr[counterTotal] = Left[counterL];
+				counterL++;
+			}
+			else {
+				arr[counterTotal] = Right[counterR];
+				counterR++;
+			}
+			counterTotal++;
+		}
+		while (counterL < L) {
+			arr[counterTotal] = Left[counterL];
+			counterL++;
+			counterTotal++;
+		}
+		while (counterR < R) {
+			arr[counterTotal] = Right[counterR];
+			counterR++;
+			counterTotal++;
+		}
+	}
+	
+}

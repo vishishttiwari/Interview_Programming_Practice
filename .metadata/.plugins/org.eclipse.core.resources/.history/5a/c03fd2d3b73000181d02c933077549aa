@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class FibonacciModifiedProblem {
+	    
+    static long[] memo;
+
+    static long fibonacciModifiedRecursion(long t1, long t2, int n) {
+        if (n == 3) return t2;
+        if (n == 2) return t2;
+        if (n <= 1) return t1;
+        
+        long term = fibonacciModifiedRecursion(t1, t2, n-1)*fibonacciModifiedRecursion(t1, t2, n-1) + fibonacciModifiedRecursion(t1, t2, n-2);
+        
+        return term;
+    }
+    
+    static long fibonacciModifiedMemoization(long t1, long t2, int n) {
+        if (memo[n-1] != 0) return memo[n-1];
+        
+        long term = fibonacciModifiedMemoization(t1, t2, n-1)*fibonacciModifiedMemoization(t1, t2, n-1) + fibonacciModifiedMemoization(t1, t2, n-2);
+        
+        memo[n-1] = term;
+        return memo[n-1];
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        long t1 = in.nextInt();
+        long t2 = in.nextInt();
+        int n = in.nextInt();
+        
+        long result1 = fibonacciModifiedRecursion(t1, t2, n);
+        System.out.println(result1);
+        
+        memo = new long[n];
+        memo[0] = t1;
+        memo[1] = t2;
+        memo[2] = t2;
+        long result2 = fibonacciModifiedMemoization(t1, t2, n);
+        System.out.println(result2);
+        
+        in.close();
+    }
+}

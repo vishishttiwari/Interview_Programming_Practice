@@ -1,0 +1,24 @@
+import java.util.Arrays;
+import java.util.Collections;
+
+public class Arrays_Sort_Java_Function {
+	public static void main(String[] args) {
+		int[] arr = {9,8,7,6,5,4,3,2,1,0,-1,-2};
+		Print.print(arr);
+		descending_Sort(arr);
+		Print.print(arr);
+	}
+	
+	public static void simple_Sort(int[] arr) {
+		Arrays.sort(arr);
+	}
+	
+	// Includes from but does not include to
+	public static void subarray_Sort(int[] arr, int from, int to) {
+		Arrays.sort(arr, from, to);
+	}
+	
+	public static void descending_Sort(int[] arr) {
+		Arrays.sort(arr, Collections.reverseOrder());
+	}
+}

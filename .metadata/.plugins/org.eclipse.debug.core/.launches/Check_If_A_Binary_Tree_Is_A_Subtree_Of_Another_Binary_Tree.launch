@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/Binary_Tree/src/checking/Check_If_A_Binary_Tree_Is_A_Subtree_Of_Another_Binary_Tree.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="checking.Check_If_A_Binary_Tree_Is_A_Subtree_Of_Another_Binary_Tree"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Binary_Tree"/>
+</launchConfiguration>

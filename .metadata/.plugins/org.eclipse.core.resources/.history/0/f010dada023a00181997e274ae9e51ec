@@ -1,0 +1,18 @@
+
+public class Dice_Throw_Problem {
+	public static void main(String[] args) {
+		System.out.println(diceDP(6, 10, 60));
+	}
+	
+	static int diceDP(int side, int n, int X) {
+		System.out.println(side + " " + n + " " + X);
+		if (X < 0 || n < 0) return 0;
+		if (n == 0 && X == 0) return 1;
+		int sum = 0, current = 0;
+		for (int i = 0; i < side; i++) {
+			current = diceDP(side, n - 1, X - (i + 1));
+			if (current != 0) sum = 1 + current; 
+		}
+		return sum;
+	}
+}

@@ -1,0 +1,25 @@
+package construction;
+
+import general.Node;
+import general.Print;
+
+public class Inorder_To_Binary_Tree {
+	public static void main(String[] args) {
+		int[] in = {1, 5, 10, 40, 30, 
+                15, 28, 20};
+		Print.print(construct(in));
+	}
+	
+	public static Node construct(int[] in) {
+		return constructTree(in, 0, in.length - 1);
+	}
+	
+	public static Node constructTree(int[] in, int start, int last) {
+		if (last < start) return null;
+		int mid = (start + last)/2;
+		Node root = new Node(in[mid]);
+		root.left = constructTree(in, start, mid - 1);
+		root.right = constructTree(in, mid + 1, last);
+		return root;
+	}
+}

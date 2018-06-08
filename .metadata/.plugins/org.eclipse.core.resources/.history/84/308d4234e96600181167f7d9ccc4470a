@@ -1,0 +1,39 @@
+package conversion;
+
+import general.Node;
+import general.Print;
+
+public class Binary_Tree_To_Sum_Tree {
+	public static void main(String[] args) {
+		Node root = new Node(10);
+		root.left = new Node(-2);
+		root.right = new Node(6);
+		root.left.left = new Node(8);
+		root.left.right = new Node(-4);
+		root.right.left = new Node(7);
+		root.right.right = new Node(5);
+		Print.print(convert(root));
+	}
+	
+	public static Node convert(Node root) {
+		Node root1 = copy(root);
+		convertSum(root, root1);
+		return root1;
+	}
+	
+	public static int convertSum(Node root, Node root1) {
+		if (root == null) return 0;
+		int left = convertSum(root.left, root1.left);
+		int right = convertSum(root.right, root1.right);
+		root1.value = left + right;
+		return root.value;
+	}
+	
+	public static Node copy(Node root) {
+		if (root == null) return null;
+		Node node = new Node(root.value);
+		node.left = copy(root.left);
+		node.right = copy(root.right);
+		return node;
+	}
+}
