@@ -1,0 +1,27 @@
+package searching;
+
+import util.Node;
+
+public class Ceiling_Of_A_Number_Using_Binary_Search_Tree {
+	public static void main1(String[] args) {
+		Node root = new Node(8);
+		root.left = new Node(3);
+		root.left.left = new Node(1);
+		root.left.right = new Node(6);
+		root.left.right.left = new Node(4);
+		root.left.right.right = new Node(7);
+		root.right = new Node(10);
+		root.right.right = new Node(14);
+		root.right.right.left = new Node(13);
+		
+		System.out.println(Ceil(root, 10));
+	}
+	
+    public static int Ceil(Node node, int input) {
+        if (node == null) return -1;
+        if (node.value == input) return node.value;
+        if (node.value < input) return Ceil(node.right, input);
+        int ceil = Ceil(node.left, input);
+        return (ceil >= input) ? ceil : node.value;
+    }
+}

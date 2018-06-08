@@ -1,0 +1,20 @@
+package searching;
+
+import util.Node;
+
+public class Shortest_Distance_Between_Two_Nodes_In_Binary_Search_Tree {
+	public static void main(String[] args) {
+		Node node = new Node(5);
+		node.left = new Node(2);
+		node.left.left = new Node(1);
+		node.left.right = new Node(3);
+		
+		node.right = new Node(12);
+		node.right.left = new Node(9);
+		node.right.right = new Node(21);
+		node.right.right.left = new Node(19);
+		node.right.right.right = new Node(25);
+		
+		
+	}
+}

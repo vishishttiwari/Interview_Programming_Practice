@@ -1,0 +1,38 @@
+package calculate;
+
+import util.Node;
+
+public class Count_Number_Of_Nodes_In_Binary_Search_Tree_That_Lie_In_A_Range {
+	public static void main(String[] args) {
+		Node node = new Node(6);
+		node.left = new Node(-13);
+		node.left.right = new Node(-11);
+		
+		node.right = new Node(14);
+		node.right.left = new Node(13);
+		node.right.right = new Node(15);
+		node.right.left = new Node(13);
+		node.right.left.left = new Node(7);
+		
+		System.out.println(count(node, -10, 13));
+	}
+	
+	static int count;
+	public static int count(Node node, int min, int max) {
+		count = 0;
+		countNodes(node, min, max);
+		return count;
+	}
+	
+	public static void countNodes(Node node, int min, int max) {
+		if (node == null) return;
+		if ((node.value >= min) && (node.value <= max)) {
+			count++;
+			countNodes(node.left, min, max);
+			countNodes(node.right, min, max);
+		}
+		else if (node.value < min) countNodes(node.right, min, max);
+		else if (node.value > max) countNodes(node.left, min, max);
+	}
+	
+}
