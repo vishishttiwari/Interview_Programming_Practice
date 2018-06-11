@@ -1,0 +1,9 @@
+package rotation;
+
+import util.Node;
+
+public class Left_Rotation {
+	public static void left(Node root) {
+		
+	}
+}

@@ -14,4 +14,7 @@
 <fullyQualifiedTypeName name="general.Print"/>
 <fullyQualifiedTypeName name="util.Print"/>
 <fullyQualifiedTypeName name="util.Node"/>
+<fullyQualifiedTypeName name="balance.Balance"/>
+<fullyQualifiedTypeName name="rotation.Right_Rotation"/>
+<fullyQualifiedTypeName name="rotation.Left_Rotation"/>
 </qualifiedTypeNameHistroy>
