@@ -1,0 +1,5 @@
+package problems;
+
+public class Find_Shortest_Unique_Prefix_For_Every_Word_In_A_Given_List {
+
+}
