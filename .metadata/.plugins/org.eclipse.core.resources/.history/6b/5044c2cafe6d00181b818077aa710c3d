@@ -1,0 +1,32 @@
+package problems;
+
+import basic.Insert;
+import util.TrieNode;
+
+public class Longest_Prefix_Matching {
+	public static void main(String[] args) {
+		TrieNode root = new TrieNode();
+		Insert.insert(root, "are");
+		Insert.insert(root, "area");
+		Insert.insert(root, "base");
+		Insert.insert(root, "cat");
+		Insert.insert(root, "cater");
+		Insert.insert(root, "children");
+		Insert.insert(root, "basement");
+		
+		System.out.println(findWords(root, "caterer"));
+		System.out.println(findWords(root, "basemexy"));
+		System.out.println(findWords(root, "child"));
+	}
+	
+	public static String findWords(TrieNode node, String string) {
+		String answer = "";
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < string.length(); i++) {
+			node = node.map.get(string.charAt(i));
+			sb.append(string.charAt(i));
+			if (node.endOfWord) answer = sb.toString();
+		}
+		return answer;
+	}
+}

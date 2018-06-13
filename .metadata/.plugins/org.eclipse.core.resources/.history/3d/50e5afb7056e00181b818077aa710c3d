@@ -1,0 +1,49 @@
+package problems;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
+import basic.Insert;
+import util.TrieNode;
+
+public class Sort_Strings {
+	public static void main(String[] args) {
+		TrieNode root = new TrieNode();
+		Insert.insert(root, "abc");
+		Insert.insert(root, "xyz");
+		Insert.insert(root, "abcd");
+		Insert.insert(root, "bcd");
+		Insert.insert(root, "abc");
+		
+		sort(root);
+	}
+	
+	public static String[] sort(TrieNode node) {
+		Queue<String> strings = new LinkedList<String>();
+		Queue<TrieNode> nodes = new LinkedList<TrieNode>();
+		
+		ArrayList<String> arr = new ArrayList<String>();
+		
+		nodes.add(node);
+		strings.add("");
+		while (!nodes.isEmpty()) {
+			TrieNode nodeTrie = nodes.poll();
+			String string = strings.poll();
+			if (nodeTrie.endOfWord) {
+				System.out.println(string + " ");
+				arr.add(string);
+			}
+			for (int i = 'A'; i <= 'z'; i++) {
+				if (nodeTrie.map.get((char)i) != null) {
+					nodes.add(nodeTrie.map.get((char)i));
+					strings.add(string + (char)i);
+				}
+			}
+		}
+		String[] answer = new String[arr.size()];
+		arr.toArray(answer);
+		System.out.println();
+		return answer;
+	}
+}
