@@ -5,16 +5,20 @@
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.util.Stack"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="general.Node"/>
 <fullyQualifiedTypeName name="java.util.Queue"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="general.Print"/>
 <fullyQualifiedTypeName name="util.Print"/>
 <fullyQualifiedTypeName name="util.Node"/>
 <fullyQualifiedTypeName name="balance.Balance"/>
 <fullyQualifiedTypeName name="rotation.Right_Rotation"/>
 <fullyQualifiedTypeName name="rotation.Left_Rotation"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="problems.TrieNode"/>
+<fullyQualifiedTypeName name="basic.Insert"/>
+<fullyQualifiedTypeName name="util.TrieNode"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
