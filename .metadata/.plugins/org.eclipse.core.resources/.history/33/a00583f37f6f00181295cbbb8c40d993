@@ -1,0 +1,32 @@
+package characters;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+
+public class Kth_Non_Repeating_Character {
+	public static void main(String[] args) {
+		System.out.println(find("geeksforgeeks", 3));
+	}
+	
+	public static char find(String string, int k) {
+		HashMap<Character, Integer> set = new HashMap<Character, Integer>();
+		HashSet<Character> alreadyDone = new HashSet<Character>();
+		ArrayList<Character> list = new ArrayList<Character>();
+		int index = 0;
+		for (int i = 0; i < string.length(); i++) {
+			if (set.get(string.charAt(i)) != null) {
+				if (!alreadyDone.contains(string.charAt(i))) {
+					list.remove((int)set.get(string.charAt(i)));
+					alreadyDone.add(string.charAt(i));
+				}
+			}
+			else {
+				set.put(string.charAt(i), index++);
+				list.add(string.charAt(i));
+			}
+		}
+		System.out.println(list.toString());
+		return list.get(k);
+	}
+}

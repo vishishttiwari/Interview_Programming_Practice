@@ -1,0 +1,5 @@
+package strings;
+
+public class Count_Total_Number_Of_Anagram_Substrings {
+
+}

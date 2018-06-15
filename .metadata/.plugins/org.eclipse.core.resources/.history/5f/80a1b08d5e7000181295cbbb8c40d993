@@ -1,0 +1,12 @@
+package iterators;
+
+import java.util.Iterator;
+
+public class StackIterator<T> {
+	public void iterate(Stack<Integer> stack) {
+		Iterator itr = Iter 
+		while(itr.hasNext()) {  
+			System.out.println(itr.next());  
+		}
+	}
+}
