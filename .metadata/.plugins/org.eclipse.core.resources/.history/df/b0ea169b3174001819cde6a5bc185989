@@ -1,0 +1,14 @@
+
+public class Friends_Pairing_Problem {
+	public static void main(String[] args) {
+		
+	}
+	
+	public static int pairing(int N) {
+		memo = new int[N + 1];
+		memo[0] = 1;
+		memo[1] = 1;
+		problem(N);
+		return memo[N];
+	}
+}

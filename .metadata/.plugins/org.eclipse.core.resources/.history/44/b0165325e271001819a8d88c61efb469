@@ -1,0 +1,48 @@
+package palindrome;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+class savePalindromes {
+	static HashSet<String> arr = new HashSet<String>();
+}
+
+public class Print_All_Palindromic_Partitions_Of_A_String {
+	public static void main(String[] args) {
+		printAll("forgeeksskeegfor");
+	}
+	
+	public static void printAll(String string) {
+		print(string);
+		System.out.println(savePalindromes.arr.toString());
+	}
+	
+	private static String print(String string) {
+		if (string.length() == 1) {
+			savePalindromes.arr.add(string);
+			return string;
+		}
+		if (string.length() == 2) {
+			if (string.charAt(0) == string.charAt(1)) {
+				savePalindromes.arr.add(string);
+				return string;
+			}
+			else
+				return "";
+		}
+		if (string.charAt(0) == string.charAt(string.length() - 1)) {
+			String temp = print(string.substring(1, string.length() - 2));
+			if (temp.length() > 0) {
+				savePalindromes.arr.add(string);
+				return string;
+			}
+			else
+				return "";
+		}
+		else {
+			print(string.substring(0, string.length() - 2));
+			print(string.substring(1, string.length() - 1));
+			return "";
+		}
+	}
+}

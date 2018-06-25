@@ -1,0 +1,20 @@
+package miscellaneous;
+
+public class Reverse_Word_In_A_Given_String {
+	public static void main(String[] args) {
+		System.out.println(reverse("i love programming"));
+	}
+	
+	public static String reverse(String string) {
+		String[] sentence = string.split(" ");
+		String answer = "";
+		for (int i = 0; i < sentence.length; i++) {
+			String temp = "";
+			for (int j = sentence[i].length() - 1; j >= 0; j--) {
+				temp += sentence[i].charAt(j);
+			}
+			answer += temp + " ";
+		}
+		return answer;
+	}
+}

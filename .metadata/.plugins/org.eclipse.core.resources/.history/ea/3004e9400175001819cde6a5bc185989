@@ -1,0 +1,13 @@
+
+public class Tiling_With_Dominos {
+	public static void main(String[] args) {
+		System.out.println(recursion(3));
+	}
+	
+	public static int recursion(int N) {
+		if (N == 0) return 0;
+		if (N % 2 == 1) return 0;
+		return 3 + recursion(N - 2);
+		
+	}
+}

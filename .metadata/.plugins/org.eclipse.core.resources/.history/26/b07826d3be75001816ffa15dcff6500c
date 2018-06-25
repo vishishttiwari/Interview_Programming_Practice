@@ -1,0 +1,31 @@
+package Longest_Common_Sequence;
+
+public class Longest_Common_Sequence {
+	public static void main(String[] args) {
+		System.out.println(memoization("AGGTAB", "GXTXAYB"));
+	}
+	
+	public static int memoization(String str1, String str2) {
+		int[][] memo = new int[str1.length() + 1][str2.length() + 1];
+		boolean occurred;
+		for (int i = 1; i < memo.length; i++) {
+			occurred = false;
+			for (int j = 1; j < memo[i].length; j++) {
+				memo[i][j] = Math.max(memo[i-1][j], memo[i][j-1]);
+				if (!occurred) {
+					if ((!occurred) && (str1.charAt(i - 1) == str2.charAt(j - 1))) {
+						occurred = true;
+						memo[i][j]++;
+					}
+				}
+			}
+		}
+		for (int i = 1; i < memo.length; i++) {
+			for (int j = 0; j < memo[i].length; j++) {
+				System.out.print(memo[i][j] + "\t");
+			}
+			System.out.println();
+		}
+		return memo[str1.length()][str2.length()];
+	}
+}

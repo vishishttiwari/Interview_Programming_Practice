@@ -1,0 +1,5 @@
+package palindrome;
+
+public class Print_All_Palindromic_Partitions_Of_A_String {
+
+}

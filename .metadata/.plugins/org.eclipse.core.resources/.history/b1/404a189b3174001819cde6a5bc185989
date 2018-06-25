@@ -1,0 +1,20 @@
+
+public class Gold_Mine_Problem {
+	public static int count(int[][] mat) {
+		int max = 0;
+		for (int i = 0; i < mat.length; i++)
+			max = Math.max(max, countAll(mat, i, 0));
+		return max;
+	}
+	
+	private static int countAll(int[][] mat, int row, int col) {
+		if (col == mat[0].length) return 0;
+		int A = 0, B, C = 0;
+		if (row != 0)
+			A = mat[row][col] + countAll(mat, row - 1, col + 1);
+		B = mat[row][col] + countAll(mat, row, col + 1);
+		if (row != mat.length - 1)
+			C = mat[row][col] + countAll(mat, row + 1, col + 1);
+		return Math.max(Math.max(A, B), C);
+	}
+}

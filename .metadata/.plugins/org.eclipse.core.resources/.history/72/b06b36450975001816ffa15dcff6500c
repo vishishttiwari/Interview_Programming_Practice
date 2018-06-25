@@ -1,0 +1,25 @@
+
+public class Painting_Fence_Algorithm {
+	public static void main(String[] args) {
+		System.out.println(recursion(3, 2, 0));
+	}
+	
+	public static int recursion(int N, int K, int occurred) {
+		if (N == 0) return 1;
+		int ways = 0;
+		if (occurred == 2) {
+			for (int i = 0; i < K - 1; i++)
+				ways += recursion(N - 1, K, 0);
+		}
+		else if (occurred == 1) {
+			ways += recursion(N - 1, 1, 2);
+			for (int i = 0; i < K - 1; i++)
+				ways += recursion(N - 1, K, 1);
+		}
+		else if (occurred == 0) {
+			for (int i = 0; i < K; i++)
+				ways += recursion(N - 1, K, 1);
+		}
+		return ways;
+	}
+}

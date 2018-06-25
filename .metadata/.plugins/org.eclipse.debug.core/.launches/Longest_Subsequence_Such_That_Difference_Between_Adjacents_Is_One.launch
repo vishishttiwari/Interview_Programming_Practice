@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/Dynamic_Programming_Again/src/Longest_Increasing_Subsequence/Longest_Subsequence_Such_That_Difference_Between_Adjacents_Is_One.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="Longest_Increasing_Subsequence.Longest_Subsequence_Such_That_Difference_Between_Adjacents_Is_One"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Dynamic_Programming_Again"/>
+</launchConfiguration>

@@ -1,0 +1,15 @@
+package anagram;
+
+import java.util.Arrays;
+
+public class Given_A_Sequence_Of_Words_Print_All_Anaframs {
+
+	public static 
+	
+	public static String sort(String string) {
+		char[] chars = string.toCharArray();
+		Arrays.sort(chars);
+		return String.valueOf(chars);
+	}
+}
+

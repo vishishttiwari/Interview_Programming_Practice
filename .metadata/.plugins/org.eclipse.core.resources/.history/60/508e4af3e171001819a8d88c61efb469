@@ -1,0 +1,30 @@
+package palindrome;
+
+public class Longest_Palindromic_Substring {
+	public static void main(String[] args) {
+		System.out.println(find("forgeeksskeegfor"));
+	}
+	
+	public static String find(String string) {
+		if ((string.length() == 1)) return string;
+		if (string.length() == 2) {
+			if (string.charAt(0) == string.charAt(1))
+				return string;
+			else
+				return "";
+		}
+		if (string.charAt(0) == string.charAt(string.length() - 1)) {
+			String temp = find(string.substring(1, string.length() - 1));
+			if (temp.length() != 0)
+				return string;
+			else
+				return temp;
+		}
+		else {
+			String temp1 = find(string.substring(0, string.length() - 1));
+			String temp2 = find(string.substring(1, string.length()));
+			if (temp1.length() > temp2.length()) return temp1;
+			else return temp2;
+		}
+	}
+}

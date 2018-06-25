@@ -1,0 +1,18 @@
+package pattern_searching;
+
+import java.util.ArrayList;
+
+public class Naive_Pattern_Searching {
+	public static void main(String[] args) {
+		System.out.println(search("THIS IS A TEST TEXT", "TEST").toString());
+	}
+	
+	public static ArrayList<Integer> search(String txt, String pat) {
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+		for (int i = 0; i < txt.length() - pat.length() + 1; i++) {
+			System.out.println(i + " " + txt.substring(i, pat.length() + i));
+			if (pat.equals(txt.substring(i, pat.length() + i))) arr.add(i);
+		}
+		return arr;
+	}
+}

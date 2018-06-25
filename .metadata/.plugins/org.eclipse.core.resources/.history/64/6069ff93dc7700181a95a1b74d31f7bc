@@ -1,0 +1,21 @@
+package Largest_Contiguous_Subarray_Problem;
+
+import java.util.Arrays;
+
+public class Largest_Sum_Contiguous_Subarray {
+	public static void main(String[] args) {
+		
+	}
+	
+	public static int memoization(int[] arr) {
+		int[] memo1 = arr.clone();
+		
+		int max;
+		
+		for (int i = 1; i < arr.length; i++) {
+			if (memo1[i] <= memo1[i] + memo1[i-1]) memo1[i] = memo1[i] + memo1[i-1];
+			Math.max(memo1[i], max);
+		}
+		return max;
+	}
+}

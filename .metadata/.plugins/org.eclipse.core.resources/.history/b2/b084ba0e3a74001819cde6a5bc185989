@@ -1,0 +1,16 @@
+
+public class Coin_Change_Problem {
+	public static void main(String[] args) {
+		System.out.println(recursion(new int[]{1,2,4}, 10, 0));
+	}
+	
+	public static int recursion(int[] coins, int value, int coin) {
+		System.out.println(value);
+		if (value == 0) return 1;
+		else if (value < 0) return 0;
+		int ways = 0;
+		for (int i = coin; i < coins.length; i++) 
+			ways += recursion(coins, value - coins[i], i);
+		return ways;
+	}
+}
