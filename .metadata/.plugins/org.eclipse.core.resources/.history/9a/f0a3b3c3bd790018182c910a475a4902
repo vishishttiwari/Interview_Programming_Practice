@@ -1,0 +1,49 @@
+package traversal;
+
+import java.util.HashSet;
+import java.util.Stack;
+
+import add.Add_Edge;
+import print.Print;
+import util.Graph;
+import util.Node;
+
+public class Depth_First_Traversal_Iterative {
+	public static void main(String[] args) {
+		Graph graph = new Graph(new int[]{0,1,2,3,4});
+		
+		Add_Edge.addDirected(graph, 2, 1);
+		Add_Edge.addDirected(graph, 1, 0);
+		Add_Edge.addDirected(graph, 0, 2);
+		Add_Edge.addDirected(graph, 0, 3);
+		Add_Edge.addDirected(graph, 3, 4);
+		Add_Edge.addDirected(graph, 4, 0);
+		
+		Print.print(graph);
+		
+		traversal(graph, 1);
+	}
+	
+	public static void traversal(Graph graph, int src) {
+		HashSet<Node> set = new HashSet<Node>();
+		Stack<Node> stack = new Stack<Node>();
+		
+		for (int i = 0; i < graph.adjacencyList.length; i++) {
+			if (graph.adjacencyList[i].value == src) {
+				stack.add(graph.adjacencyList[i]);
+				break;
+			}
+		}
+		
+		while (!stack.isEmpty()) {
+			set.add(stack.peek());
+			System.out.print(stack.peek() + " -> ");
+			for (int i = 0; i < stack.peek().list.size(); i++) {
+				if (!set.contains(stack.peek().list.get(i))) 
+					stack.add(stack.peek().list.get(i));
+			}
+			stack.pop();
+		}
+		System.out.println("Done");
+	}
+}

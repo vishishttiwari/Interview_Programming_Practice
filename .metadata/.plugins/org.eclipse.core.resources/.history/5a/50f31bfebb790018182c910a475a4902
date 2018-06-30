@@ -1,0 +1,44 @@
+package matrix;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+import add.Add_Edge;
+import print.Print;
+import util.Graph;
+import util.Node;
+
+public class Create_Path_Matrix {
+	public static boolean[][] convert(Graph graph) {
+		ArrayList<Node> path = new ArrayList<Node>();
+		boolean[][] mat = new boolean[graph.adjacencyList.length][graph.adjacencyList.length];
+		for (int i = 0; i < graph.adjacencyList.length; i++) {
+			path.clear();
+			traversal(graph, graph.adjacencyList[i].value, path);
+			for (int j = 0; j < path.size(); j++) {
+				mat[graph.adjacencyList[i].value][path.get(j).value] = true;
+			}
+		}
+		return mat;
+	}
+	
+	private static void traversal(Graph graph, int src, ArrayList<Node> path) {
+		HashSet<Node> visited = new HashSet<Node>();
+		for (int i = 0; i < graph.adjacencyList.length; i++) {
+			if (graph.adjacencyList[i].value == src) {
+				traversalUtil(graph, visited, graph.adjacencyList[i], path);
+				break;
+			}
+		}
+		System.out.println("Done");
+	}
+	
+	private static void traversalUtil(Graph graph, HashSet<Node> visited, Node src, ArrayList<Node> path) {
+		visited.add(src);
+		
+		path.add(src);
+		
+		for (int i = 0; i < src.list.size(); i++)
+			if (!visited.contains(src.list.get(i))) traversalUtil(graph, visited, src.list.get(i), path);
+	}
+}
