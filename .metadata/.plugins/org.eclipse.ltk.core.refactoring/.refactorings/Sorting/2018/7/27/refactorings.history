@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;algorithms.Topological_Sorting&apos; to &apos;Topological_Sort&apos;&#x0A;- Original project: &apos;Sorting&apos;&#x0A;- Original element: &apos;algorithms.Topological_Sorting&apos;&#x0A;- Renamed element: &apos;algorithms.Topological_Sort&apos;&#x0A;- Update references to refactored element&#x0A;- Rename similarly named elements&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Topological_Sorting&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;algorithms{Topological_Sorting.java[Topological_Sorting" matchStrategy="1" name="Topological_Sort" qualified="false" references="true" similarDeclarations="true" stamp="1530490196060" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,48 @@
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Stack;
+
+import add.Add_Edge;
+import util.Graph;
+import util.Node;
+
+public class topological_sorting {
+	public static void main(String[] args) {
+		Graph graph = new Graph(new int[]{0,1,2,3,4,5});
+		
+		Add_Edge.addDirected(graph, 5, 0);
+		Add_Edge.addDirected(graph, 4, 0);
+		Add_Edge.addDirected(graph, 5, 2);
+		Add_Edge.addDirected(graph, 4, 1);
+		Add_Edge.addDirected(graph, 2, 3);
+		Add_Edge.addDirected(graph, 3, 1);
+		
+		sort(graph);
+	}
+	
+	public static void sort(Graph graph) {
+		Stack<Integer> stack = new Stack<Integer>();
+		HashSet<Integer> set = new HashSet<Integer>();
+		
+		for (int i = 0; i < graph.vertices; i++) {
+			if (!set.contains(graph.adjacencyList[i])) {
+				sortUtil(graph, graph.adjacencyList[i], stack, set);
+			}
+		}
+		
+		Iterator<Integer> itr = stack.iterator();
+		while (!stack.isEmpty()) {
+			System.out.print(itr.pop() + " ");
+		}
+	}
+	
+	private static void sortUtil(Graph graph, Node source, Stack<Integer> stack, HashSet<Integer> set) {
+		set.add(source.value);
+		for (int i = 0; i < source.list.size(); i++) {
+			if (!set.contains(source.list.get(i).value))
+				sortUtil(graph, source.list.get(i), stack, set);
+		}
+		stack.push(source.value);
+		return;
+	}
+}

@@ -1,0 +1,18 @@
+package traversal;
+
+import add.Add_Edge;
+import util.Graph;
+
+public class Transpose_Graph {
+	public static Graph transpose(Graph graph) {
+		int[] arr = new int[graph.vertices];
+		for (int i = 0; i < arr.length; i++)
+			arr[i] = i;
+		Graph graph1 = new Graph(arr);
+		for (int i = 0; i < graph.adjacencyList.length; i++) {
+			for (int j = 0; j < graph.adjacencyList[i].list.size(); j++)
+				Add_Edge.addDirected(graph1, graph.adjacencyList[i].list.get(j).value, graph.adjacencyList[i].value);
+		}
+		return graph1;
+	}
+}

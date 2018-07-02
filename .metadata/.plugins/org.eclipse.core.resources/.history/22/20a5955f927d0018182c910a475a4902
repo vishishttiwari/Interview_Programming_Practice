@@ -1,0 +1,15 @@
+package add;
+
+import util.Graph;
+import util.Weighted_Graph;
+
+public class Add_Weighted_Edge {
+	public static void addDirected(Weighted_Graph graph, int src, int dest, int weight) {
+		int sourceLocation = -1, destinationLocation = -1;
+		for (int i = 0; i < graph.adjacencyList.length; i++) {
+			if (graph.adjacencyList[i].value == src) sourceLocation = i;
+			if (graph.adjacencyList[i].value == dest) destinationLocation = i;
+		}
+		graph.adjacencyList[i].list.add(new Weighted)
+	}
+}
