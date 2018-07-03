@@ -2,23 +2,30 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="java.util.Comparator"/>
-<fullyQualifiedTypeName name="java.util.Stack"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="general.Node"/>
-<fullyQualifiedTypeName name="java.util.Queue"/>
-<fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="general.Print"/>
 <fullyQualifiedTypeName name="util.Print"/>
-<fullyQualifiedTypeName name="util.Node"/>
 <fullyQualifiedTypeName name="balance.Balance"/>
 <fullyQualifiedTypeName name="rotation.Right_Rotation"/>
 <fullyQualifiedTypeName name="rotation.Left_Rotation"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="problems.TrieNode"/>
 <fullyQualifiedTypeName name="basic.Insert"/>
 <fullyQualifiedTypeName name="util.TrieNode"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.Queue"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="print.Print"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="add.Add_Edge"/>
+<fullyQualifiedTypeName name="java.util.Stack"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="util.Node"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="util.Graph"/>
+<fullyQualifiedTypeName name="util.Weighted_Graph"/>
+<fullyQualifiedTypeName name="util.Weighted_Edge"/>
+<fullyQualifiedTypeName name="util.Weighted_Node"/>
 </qualifiedTypeNameHistroy>
